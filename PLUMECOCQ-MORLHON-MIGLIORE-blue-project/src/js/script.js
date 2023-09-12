@@ -1,5 +1,12 @@
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = Action;
+xhttp.open("GET", '/fichier.json');
+
 /* inventaire  */
 const inventory = [];
+
+let namePlayerInput = document.getElementById("inputNamePlayer");
+let nameEnnemyInput = document.getElementById("inputNameEnnemy");
 
 /* joueur */
 class perso {
@@ -33,25 +40,35 @@ class nameOfEnnemy{
         this.ennemyName = NewEnnemyName;
     }
 }
+
 // Crée le joueur avec le nom entré ( valeur par default fish = 0 ; wood = 0 ; water = 0 )
 function createNewPlayer(){
-    const namePlayerInput = document.getElementById("inputNamePlayer");
-    const userName = namePlayerInput.value;
-    const Player =new perso(userName, 0, 0, 0)
-    console.log("Nouveau joueur créé : " + Player.userName); // test console
+    //let namePlayerInput = document.getElementById("inputNamePlayer");
+    let userName = namePlayerInput.value;
+    if(userName.trim() === ""){
+        console.log("error");
+    } else {
+        const Player =new perso(userName, 0, 0, 0)
+        console.log("Nouveau joueur créé : " + Player.userName); // test console
+    }
+
 }
 
 // Crée les ennemie avec le nom entré 
 function creatNewEnnemy(){
-    const nameEnnemyInput = document.getElementById("inputNameEnnemy");
-    const ennemyName = nameEnnemyInput.value;
-    const Ennemy = new nameOfEnnemy(ennemyName);
-    console.log("Les ennemies sont : " + Ennemy.ennemyName); // test console 
+    //let nameEnnemyInput = document.getElementById("inputNameEnnemy");
+    let ennemyName = nameEnnemyInput.value;
+    if(ennemyName.trim() === ""){
+        console.log("error");
+    } else {
+        let Ennemy = new nameOfEnnemy(ennemyName);
+        console.log("Les ennemies sont : " + Ennemy.ennemyName); // test console 
+    }
 }
 
 // lance la création du joueur et d'un ennemie 
 function startGame(){
-    createNewPlayer();
-    creatNewEnnemy();
+        createNewPlayer();
+        creatNewEnnemy();
 }
 
