@@ -1,0 +1,32 @@
+{
+    "partie": {
+        "jour": 1,
+        "eau": 1,
+        "evenment": 0,
+        "les autre": 1
+    },
+    "joueur": 
+    {
+        "nom": "",
+        "eau": 3,
+        "poisson": 2,
+        "bois": 0
+    },
+    "cartes": [
+        {
+            "nom": "Carte 1",
+            "description": "Une carte utile pour la pêche",
+            "effet": "ajoute 2 poissons"
+        },
+        {
+            "nom": "Carte 2",
+            "description": "Une carte pour trouver de l'eau",
+            "effet": "ajoute 2 eaux"
+        },
+        {
+            "nom": "Carte 3",
+            "description": "Une carte pour réduire la consommation d'eau et de poison",
+            "effet": "réduit la consommation d'eau et de poison de 1 pour le tour en cours"
+        }
+    ]
+}
