@@ -1,0 +1,29 @@
+
+body{
+    background-image: url('../img/facing-vide.jpg');
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    margin: 0; /* Supprime les marges par défaut du corps */
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+}
+
+.home{
+    margin-top: -30%;
+    /*text-align: center;*/
+}
+
+#start{
+    position: relative; /* Utilisez une position relative */
+    top: 20rem; /* Ajustez la valeur de top pour déplacer la div "start" vers le bas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start a{
+    text-decoration: none;
+    width: 200px; /* Définir une largeur de 300 pixels */
+    height: 50px; /* Définir une hauteur de 200 pixels */
+    background-color: #ccc;
+}

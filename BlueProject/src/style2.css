@@ -1,0 +1,9 @@
+
+body{
+    background-image: url('../img/illustration-plateau2.jpg');
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    margin: 0; /* Supprime les marges par défaut du corps */
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+}
