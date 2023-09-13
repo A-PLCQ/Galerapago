@@ -3,15 +3,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const cors = require('cors');
 
-app.use(cors({
-    origin: '*'
-}));
+const Routes = require('./routes');
 
-const MotorcyclesRoutes = require('./routes');
-
-app.use(MotorcyclesRoutes);
+app.use(Routes);
 
 // Démarrer le serveur
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

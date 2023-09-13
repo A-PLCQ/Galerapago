@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controllers =
-require('../controllers/main')
+require('./controllers/main')
 
 router.get('/', controllers.getM);
 

@@ -69,7 +69,7 @@ a{
 }
 
 body {
-    background-image: url(/src/assets/img/illustration-plateau2.jpg);
+    background-image: url(../assets/img/illustration-plateau2.jpg);
     font-family: "Archivo";
     font-weight: 400;
     line-height: 1.5;
@@ -115,7 +115,7 @@ header .logo {
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    background-image: url(/src/assets/img/fond-parchemin-sans-cotes.png);
+    background-image: url(../assets/img/fond-parchemin-sans-cotes.png);
     background-size:  300px 360px;
     background-position: center;
     background-repeat: no-repeat;
