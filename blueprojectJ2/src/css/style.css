@@ -162,6 +162,7 @@ a {
 
 body {
     background-image: url(/src/assets/img/illustration-plateau2.jpg);
+    background-size: cover;
     font-family: "Archivo";
     font-weight: 400;
     line-height: 1.5;
@@ -197,6 +198,7 @@ header .logo {
     justify-content: center;
     margin: 50px;
 }
+
 .card {
     width: 300px;
     height: 350px;

@@ -1,84 +1,50 @@
-let playerCreat = false;
-let ennemyCreat = false;
-let ennemyName;
-let userName;
-
-//joueur 
-class perso {
-    constructor(userName, fish, wood, water){
-        this.userName = userName; 
-        this.fish = fish; 
-        this.wood = wood; 
-        this.water = water; 
-    } 
-
-    set setFish(newFish){
-        this.fish = newFish;
+class Galerapago {
+    constructor() {
+        this.jours = 0;
+        this.ressources = {
+            poissons: 2,
+            bois: 0,
+            eau: 3,
+        };
+        this.joursAvantTempete = 20;
+        this.enVie = true;
     }
 
-    set setWood(newWood){
-        this.wood = newWood;
-    }
+    jouerTour() {
+        if (this.enVie) {
+            this.jours++;
+            this.ressources.bois += Math.floor(Math.random() * 2) + 1;
+            this.ressources.poissons -= 1;
+            this.ressources.eau -= 1;
+            this.joursAvantTempete--;
 
-    set setWater(newWater){
-        this.water = newWater;
-    }
-}
+            // Vérifier les conditions de victoire ou de défaite
+            if (this.jours === 20 || this.ressources.bois >= 10 || this.ressources.poissons <= 0 || this.ressources.eau <= 0) {
+                this.enVie = false;
+            }
 
-// enemie, la classe est crée juste pour pouvoir choisir le nom des ennemie
-class nameOfEnnemy{
-    constructor(ennemyName){
-        this.ennemyName = ennemyName;
-    }
-
-    set setEnnemyName(NewEnnemyName){
-        this.ennemyName = NewEnnemyName;
-    }
-}
-
-// Crée le joueur avec le nom entré ( valeur par default fish = 0 ; wood = 0 ; water = 0 )
-function createNewPlayer(){
-    let namePlayerInput = document.getElementById("inputNamePlayer");
-    userName = namePlayerInput.value;
-    if(userName.trim() === ""){ 
-        console.log("error");
-    } else {
-        if(userName.length < 3){ // condition si -3 string
-          console.log("trop petit");
-        }
-        else if(userName.length > 16){ // condition si +16 string
-          console.log("trop grand")
-        } else{
-          const Player =new perso(userName, 0, 0, 0);
-          console.log("Nouveau joueur créé : " + Player.userName); // test console
-          playerCreat = true;
+            // Afficher des informations dans la console (à personnaliser)
+            this.afficherInfos();
         }
     }
 
-}
-
-// Crée les ennemie avec le nom entré 
-function creatNewEnnemy(){
-    let nameEnnemyInput = document.getElementById("inputNameEnnemy");
-    ennemyName = nameEnnemyInput.value;
-    if(ennemyName.trim() === ""){
-        console.log("error");
-    } else {
-        let Ennemy = new nameOfEnnemy(ennemyName);
-        console.log("Les ennemies sont : " + Ennemy.ennemyName); // test console 
-        //window.location.href = "/home.html";
-        ennemyCreat = true;
+    afficherInfos() {
+        // Afficher les informations dans la console ou dans l'interface utilisateur
+        // Tu peux personnaliser cette fonction pour afficher les informations de manière appropriée
+        const consoleDiv = document.getElementById('console');
+        consoleDiv.innerHTML = `
+            Jour : ${this.jours}<br>
+            Poissons : ${this.ressources.poissons}<br>
+            Bois : ${this.ressources.bois}<br>
+            Eau : ${this.ressources.eau}<br>
+            Jours avant la tempête : ${this.joursAvantTempete}
+        `;
     }
 }
 
-function startGame(){
-  createNewPlayer(); // lance la creation d'un joueur
-  creatNewEnnemy(); // lance la creation d'un ennemie
-  localStorage.setItem('enemyName', ennemyName); // Stocker le nom des ennemie dans le stockage local
-  localStorage.setItem('userName', userName); // stcoker le nom de l'user
-  if(playerCreat === true && ennemyCreat === true){ // condition si joueur crée & enemy crée
-    window.location.href = "/home.html";
-  } else{
-    
-  }
-}
+const jeu = new Galerapago();
+const jouerBtn = document.getElementById('jouer-btn');
+
+jouerBtn.addEventListener('click', () => {
+    jeu.jouerTour();
+});
