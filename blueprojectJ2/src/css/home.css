@@ -87,52 +87,46 @@ html {
 }
 
 
-/* home */
+/* plato */
 
-.home {
+.plato {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px;
 }
-.card {
-    width: 300px;
-    height: 350px;
-    padding: 0 15px;
-    text-align: center;
+
+.resours {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    background-image: url(/src/assets/img/fond-parchemin-sans-cotes.png);
-    background-size:  300px 360px;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 11px 6px 10px 4px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100px;
+    height: 150px;
 }
-
-/* styles.css */
-
 
 .card-carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px; /* Crée une perspective pour l'effet 3D */
+   
 }
 
 .card {
     width: 100px;
     height: 150px;
-    background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 10px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    flex-direction: column;
+    background-image: url(/src/assets/img/fond-parchemin-sans-cotes.png);
+    background-size:  100px 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 11px 6px 10px 4px rgba(0, 0, 0, 0.5);
 }
-
-
 
 .card:hover {
     transform: rotateY(0deg) translateZ(0) scale(1.2); /* Agrandir la carte lorsqu'elle est survolée */

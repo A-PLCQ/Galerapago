@@ -8,24 +8,27 @@
     <meta name="author" content="A-PLCQ" />
     <meta name="description" content="jeu de survie solo" />
 
-    <link rel="stylesheet" href="src/css/home.css" />
+    <link rel="stylesheet" href="/src/css/home.css" />
 
     <title>Galèrapago</title>
 </head>
 
 <body>
     <main>
-        <section class="plato">
-            <div class="card-carousel">
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
+        <div class="plato">
+            <div class="resours">
+                <div>
+                    <span class="poisson" id="food">{0}</span>
+                    <img src="/src/assets/img/eau.png" alt="">
+                </div>
+                <span class="eau" id="water">{0}<img src="" alt=""></span>
             </div>
-        </section>
+        </div>
+        <div class="card-carousel">
+            <span class="card empty-card" id="card1"></span>
+            <span class="card empty-card" id="card2"></span>
+            <span class="card empty-card" id="card3"></span>
+        </div>
     </main>
 </body>
 <script src="/src/js/scriptHome.js"></script>

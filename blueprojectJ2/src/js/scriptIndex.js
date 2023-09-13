@@ -2,6 +2,7 @@ let playerCreat = false;
 let ennemyCreat = false;
 let Ennemy;
 let Player;
+let Eror = document.getElementById('notValidEnter');
 
 function startGame(){
 
@@ -13,14 +14,20 @@ function startGame(){
 
     if(Player.length < 3){
         console.log("Nom du joueur trop court");
+        Eror.textContent = "Nom du joueur trop court : 3 MIN";
+        Eror.style.color = "red";
     }
 
     else if(Player.length >16){
         console.log("Nom du joueur trop long");
+        Eror.textContent = "Nom du joueur trop long : 20 MAX";
+        Eror.style.color = "red";
     }
 
-    else if(Ennemy.length < 1 || Ennemy.length > 20){
+    else if(Ennemy.length < 3 || Ennemy.length > 20){
         console.log("nom ennemie pas valable, min : 3 lettre / max : 20");
+        Eror.textContent = "nom ennemie pas valable, min : 3 lettre / max : 20";
+        Eror.style.color = "red";
     } else{
         playerCreat =true;
         ennemyCreat =true;
