@@ -35,6 +35,14 @@ let meteo;
 let meteoValue =0;
 // definition du status de l'event
 let eventStatus = false;
+// definition de l'id devenement
+let eventId;
+// focage pour prendre plusieur carte
+let bonusPickCard = false;
+// coix de l'eeeft d'event
+let choiEfetEventId;
+//effet de l'event 3 qui varie en fonction de la météo
+let efectWithMeteo = false;
 
 //joueur
 class perso {
@@ -166,15 +174,22 @@ function verifPlayer(){
 };
 
 function gameSteep(){
+    if (efectWithMeteo === true){
+        Player.fish -= consoFish + debufMineFood + 3;
+        efectWithMeteo = false;
+    } else{
+        Player.fish -= consoFish + debufMineFood;
+    }
     jour += 1;
     Player.water -= consoWater + debufMineWater;
-    Player.fish -= consoFish + debufMineFood;
     alert("Le tour est fini, Vous perdez 1 d'eau et 1 poisson" + '\n'+" Jour : " + jour);
     refreshStat();
     verifPlayer();
     tirageCard();
     resetEfectCard();
     tirageMeteo();
+    verifEvent();
+
 };
 
 function mineWater(){
@@ -201,12 +216,10 @@ function mineFish(){
 function useEfectCard(){
     switch (idPickCard) {
         case 1:
-            consoFish = 0;
-            debufMineFood = -1;
-            debufMineWater =-1;
+           bonusPickCard = false ;
             break;
-        case 2:
-            Player.water += 2;
+        case 2: // en att
+            Player.water -= 3;
             break;
         case 3:
             if(Player.wood < 2){
@@ -247,7 +260,7 @@ function resetEfectCard(){
 }
 
 function validCard(){
-    if(pickCard === false){
+    if(pickCard === false || bonusPickCard === true){
         pickCard = true;
         useEfectCard();
         refreshStat();
@@ -279,18 +292,76 @@ function verifEvent(){
     let eventPop2 = 16;
     if(jour === eventPop1 || jour === eventPop2){
         eventStatus = true;
+        tirageEvent();
+        conditionEvent();
     } else{
         eventStatus = false;
     }
 }
 
-/*function startEvent(){
+function conditionEvent(){
+    if(eventId === 3){
+        choiEfetEvent();
+        document.getElementById("click").style.display = "flex"
+
+    } else{
+        useEfectEvent();
+        refreshStat();
+    }
+}
+
+function tirageEvent(){; 
+    let rEvent = Math.floor(Math.random() * 3)+1;
+    let eventCard = document.getElementById("eventCard");
+    let urlEventImg = '/src/assets/img/carteEvent/'+rEvent+'.jpg';
+    eventCard.setAttribute("src", urlEventImg);
+    eventId = rEvent;
+}
+
+
+//tirageEvent();
+/*
+function startEvent(){
     verifEvent();
     if(eventStatus === true){
-
+        tirageEvent();
     }
-} */
+} 
+*/
+function useEfectEvent(){
+    switch (eventId) {
+        case 1:
+            debufMineFood = -1;
+            break;
+        case 2:
+            Player.water += 2;
+            break;
+        case 3:
+            if(choiEfetEventId === 1){
+                Player.fish -= 1;
+                break;
+            }else{
+                efectWithMeteo = true;
+                break;
+            };
+    }
+    refreshStat;
+};
+
+function choiEfetEvent(choix){
+    if(choix === 1){
+        choiEfetEventId = 1;
+    } else{
+        choiEfetEventId = 2; 
+    }
+}
+
+function startEvent(){
+    useEfectEvent();
+    refreshStat();
+    document.getElementById("click").style.display = "none" ; 
+}
 
 tirageCard();
 tirageMeteo();
-//refreshStat(); //IF YOU NEED CHEAT !
+refreshStat(); //IF YOU NEED CHEAT !

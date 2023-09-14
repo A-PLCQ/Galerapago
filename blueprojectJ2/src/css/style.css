@@ -261,3 +261,7 @@ header .logo {
 .sign-up:hover {
     opacity: 0.8;
 }
+
+#click button{
+    display: none;
+}
