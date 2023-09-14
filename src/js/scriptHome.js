@@ -205,7 +205,6 @@ function verifPlayer(){
     };
 };
 
-toggleDivOnTurnInfo();
 
 function toggleDivOnTurnInfo() {
     // Obtenez l'élément div que vous souhaitez afficher/masquer
