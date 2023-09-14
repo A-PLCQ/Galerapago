@@ -162,7 +162,7 @@ a {
 
 body {
     background-image: url(/src/assets/img/illustration-plateau2.jpg);
-    background-size: cover;
+    background-size: ;
     font-family: "Archivo";
     font-weight: 400;
     line-height: 1.5;
@@ -260,8 +260,4 @@ header .logo {
 
 .sign-up:hover {
     opacity: 0.8;
-}
-
-#click button{
-    display: none;
 }

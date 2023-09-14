@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="A-PLCQ" />
+    <meta name="description" content="jeu de survie solo" />
+
+    <link rel="stylesheet" href="/src/css/home.css" />
+
+    <title>Galèrapago</title>
+</head>
+
+<body>
+    <main>
+        <section class="plato">
+            <div class="resours">
+                <span class="poisson">
+                    <img class="poisson" src="/src/assets/img/icons/poisson.png">
+                    <p id="fish"></p>
+                </span>
+                <span class="eau">
+                    <img src="/src/assets/img/icons/eau.png">
+                    <p id="water"></p>
+                </span>
+                <span class="bois">
+                    <img src="/src/assets/img/icons/bois.png">
+                    <p id="wood"></p>
+                </span>
+            </div>
+            
+            <div class="av">
+                <div class="meteo">
+                    <img src="/src/assets/img/carteMeteo/5.png" alt="" id="meteoInGame">
+                </div>
+                <div class="radeau" id="radeauInGame">
+                    <img src="/src/assets/img/radeau.png" alt="">
+                </div>
+            </div>
+        </section>
+        
+        <div class="carte">
+            <div class="choice">
+                <button id="rWater" onclick="mineWater()">récolter l'eau</button>
+                <button id="rFish" onclick="mineFish()">récolter des poisson</button>
+                <button id="rWood" onclick="mineWood()">récolter du bois </button>
+            </div>
+        
+            <div class="contCard">
+                <div class="card-carousel">
+                    <span class="card empty-card" id="card1" onclick="readCard(1)"><img src="" alt=""></span>
+                    <span class="card empty-card" id="card2" onclick="readCard(2)"><img src="" alt=""></span>
+                    <span class="card empty-card" id="card3" onclick="readCard(3)"><img src="" alt=""></span>
+                </div>
+
+                <div class="maxCard">
+                    <img id="cardActive" src="" alt="">
+                    <button onclick="validCard()">jouer la carte</button>
+                </div>
+            </div>
+        </div>
+        <div class="evenemnt">
+            <button class="Btn" id="cross" onclick="closeEvent()">fermer</button>
+            <img id="event" src="" alt="">
+            <span class="choix">
+                <button id="valider" onclick="validCard()"> Validé </button>
+                <button id="valider1" onclick="validCard()"> Refuser </button>
+            </span>
+        </div>
+    </section>
+        
+    </main>
+</body>
+<script src="/src/js/scriptHome.js"></script>
+
+</html>

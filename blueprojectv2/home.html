@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="A-PLCQ" />
+    <meta name="description" content="jeu de survie solo" />
+
+    <link rel="stylesheet" href="/src/css/home.css" />
+
+    <title>Galèrapago</title>
+</head>
+
+<body>
+    <main>
+        <div class="plato">
+            <section class="top">
+                <div class="resours">
+                    <span class="poisson" id="fish">2</span>
+                    <img class ="poisson" src="/src/assets/img/icons/poisson.png" >
+                    <span class="eau" id="water">3</span>
+                    <img src="/src/assets/img/icons/eau.png" >
+                    <span class="bois" id="wood">0</span>
+                    <img src="/src/assets/img/icons/bois.png" >
+                </div>
+    
+                <div class="meteo">
+                    <img src="/src/assets/img/carteMeteo/5.png" alt="" id="meteoInGame">
+                </div>
+                <div class="radeau" id="radeauInGame">
+                    <img src="/src/assets/img/radeau.png" alt="">
+                </div>
+            </section>
+        </div>
+
+        <div class="alert">
+            <div class="msgInGame">
+                <span class="infoAction" id="infoAction"> Info </span>
+            </div>
+            <div class="choice">
+                <button id="valider" onclick="validCard()"> Validé </button>
+            </div>
+        </div>
+
+        <div class="evenemnt">
+            <img id="eventCard" src=""> <!-- tu peut mettre l'image de dans  -->
+            <span>
+                <button id="click" onclick="choiEfetEvent(1)"> Retirer 1 poisson tout de suite </button>
+                <button id="click" onclick="choiEfetEvent(2)"> Perde 3 poisson quans la météo est a 3 </button>
+            </span>
+        </div>
+
+
+        <div class="carte">
+            <div class="choice">
+                <button id="rWater" onclick="mineWater()">récolter l'eau</button>
+                <button id="rWood" onclick="mineWood()">récolter du bois </button>
+                <button id="rFish" onclick="mineFish()">récolter des poisson</button>
+            </div>
+        
+            <div class="card-carousel">
+                <span class="card empty-card" id="card1" onclick="readCard(1)"><img src="" alt=""></span>
+                <span class="card empty-card" id="card2" onclick="readCard(2)"><img src="" alt=""></span>
+                <span class="card empty-card" id="card3" onclick="readCard(3)"><img src="" alt=""></span>
+            </div>
+        </div>
+        
+    </main>
+</body>
+<script src="/src/js/scriptHome.js"></script>
+
+</html>
+
