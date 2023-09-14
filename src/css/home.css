@@ -70,9 +70,8 @@ a{
 }
 
 body {
-    background-image: url(/src/assets/img/plateau.png);
-    background-size: cover;
-    background-position: center;
+    background-image: url(/src/assets/img/illustration-plateau2.jpg);
+    background-size: 100%;
     background-repeat: no-repeat;
     font-family: "Archivo";
     font-weight: 400;
@@ -81,123 +80,127 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 12px;
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-
-/* plato */
-
+/* Section principale */
 .plato {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    background-image: url(/src/assets/img/plateau.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 100vh;
-}
-
-.top {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .resours {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    width: 100px;
-    padding: 10px;
-    gap: 10px;
     position: relative;
-    top: -200px;
-    right: 50px;
-
+    top: -180px;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .resours span {
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    margin-right: 20px;
 }
-.resours span img {
+
+.resours img {
     width: 50px;
     height: 50px;
+    margin-right: 5px;
+}
 
+.av {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .meteo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 170px;
     position: relative;
-    top: -175px;
-    left: 465px;
+    top: 20px;
+    left: -177px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.meteo img{
-    margin: 10px;
+.meteo img {
+    max-width: 135px;
     border-radius: 5px;
-    width: 150px;
 }
 
 .radeau {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     position: relative;
-    top: 135px;
-    left: 70px;
+    top: 65px;
+    right: 100px;
 }
 
-.radeau img{
-    margin: 10px;
-    border-radius: 5px;
-    width: 240px;
+.radeau img {
+    max-width: 200px;
 }
 
-.carte {
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.alert {
-    position: relative;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Section des messages en jeu */
 .msgInGame {
-    align-items: self-end;
+    overflow: hidden;
+    border: solid 1px #ccc;
+    padding: 20px;  
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
 }
 
+.finDejours{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.evenemnt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 400px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+
+/* Section des choix */
+.carte {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice {
+    display: flex;
+    gap: 20px;
+}
 
 .choice button {
     border: none;
@@ -212,11 +215,18 @@ html {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    
+}
+
+.contCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    gap: 20px;
+    margin: 20px;
 }
 
 .choice button:hover { 
-
     transform: scale(1.1);
 }
 
@@ -242,11 +252,43 @@ html {
     box-shadow: 11px 6px 10px 4px rgba(0, 0, 0, 0.5);
 }
 
-.infoAction {
-    color: #111;
-}
-
-
 .card:hover {
     transform: rotateY(0deg) translateZ(0) scale(1.2); /* Agrandir la carte lorsqu'elle est survolée */
 }
+
+.maxCard {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 350px;
+    border-radius: 10px;
+    background-color: #111;
+}
+
+.maxCard img {
+    width: 340px;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.maxCard button {
+    border: none;
+    padding: 10px;
+    background-image: url(/src/assets/img/planche-texte.png);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    background-position: center;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.maxCard button:hover { 
+    transform: scale(1.1);
+}
+
