@@ -81,9 +81,6 @@ body {
 }
 
 
-main {
-    margin: 0 auto;
-}
 
 /* Section principale */
 
@@ -118,21 +115,12 @@ header {
 
 /* plato */
 .plato {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;            
+    display: flex;         
     justify-content: center;
-    gap: 20px;
-}
-
-.contCard {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 20px;
+    height: 90vh;
+    width: 100%;
 }
 
 .maxCard {
@@ -140,8 +128,8 @@ header {
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    height: 500px;
-    width: 350px;
+    gap: 20px;
+    padding: 50px;
     border-radius: 10px; 
     background-image: url(/src/assets/img/fond-parchemin-sans-cotes.png);
     background-size:  cover;
@@ -150,8 +138,7 @@ header {
 }
 
 .maxCard img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -184,8 +171,7 @@ header {
 
 .meteo {
     display: flex;
-    width: 600px;
-    height: 200px;
+    padding: 20px;
     justify-content: space-around;
     align-items: center;
     background-image: url(/src/assets/img/plateau.png);
@@ -230,15 +216,6 @@ header {
     gap: 20px;
 }
 
-
-.card-carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap:wrap;
-    gap: 10px;
-}
-
 .recolte {
     display: flex;
     gap: 10px;
@@ -253,7 +230,7 @@ header {
     color: #fff;
     background-position: center;
     border-radius: 2px;
-    font-size: 20px;
+    font-size: 150%;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -262,11 +239,11 @@ header {
 .recolte button:hover { 
     transform: scale(1.1);
 }
+
 .card-carousel{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap:wrap;
     gap: 10px;
 }
 
