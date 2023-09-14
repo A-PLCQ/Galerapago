@@ -31,6 +31,10 @@ let pickCard = false;
 let idPickCard;
 //gestion météo
 let meteo;
+// configurer la valeur de meteo
+let meteoValue =0;
+// definition du status de l'event
+let eventStatus = false;
 
 //joueur
 class perso {
@@ -54,7 +58,7 @@ class perso {
     }
 }
 
-let Player = new perso(getUserName, 0, 3, 2); // stat de base 0 bois / 3 eau / 2 poisson
+let Player = new perso(getUserName, 0, 300, 200); // stat de base 0 bois / 3 eau / 2 poisson
 
 console.log('user name : ' + Player.userName);
 console.log('user wood : ' + Player.wood);
@@ -170,10 +174,11 @@ function gameSteep(){
     verifPlayer();
     tirageCard();
     resetEfectCard();
+    tirageMeteo();
 };
 
 function mineWater(){
-    Player.water += 1;
+    Player.water += meteoValue;
     refreshStat();
     gameSteep();
 
@@ -252,6 +257,40 @@ function validCard(){
     }
 };
 
+// tirage et assignation valeur de la carte méteo, avec une condition si le tour 18 est depassers
+function tirageMeteo(){
+    if(jour < 18){
+        rMeteo = Math.floor(Math.random() * 4);
+        let meteoInGame = document.getElementById("meteoInGame");
+        meteoInGame.setAttribute("src", "/src/assets/img/carteMeteo/"+rMeteo+".png");
+        meteoValue = rMeteo;
+    }else if(jour >= 18){
+        let meteoInGame = document.getElementById("meteoInGame");
+        meteoInGame.setAttribute("src", "/src/assets/img/carteMeteo/4.png");
+        meteoValue = 2;
+    }else{
+        let meteoInGame = document.getElementById("meteoInGame");
+        meteoInGame.setAttribute("src", "/src/assets/img/carteMeteo/5.png");
+    }
+}
+
+function verifEvent(){
+    let eventPop1 = 8;
+    let eventPop2 = 16;
+    if(jour === eventPop1 || jour === eventPop2){
+        eventStatus = true;
+    } else{
+        eventStatus = false;
+    }
+}
+
+/*function startEvent(){
+    verifEvent();
+    if(eventStatus === true){
+
+    }
+} */
+
 tirageCard();
+tirageMeteo();
 //refreshStat(); //IF YOU NEED CHEAT !
-//tirageCard();
