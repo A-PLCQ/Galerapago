@@ -151,7 +151,7 @@ main {
 
 /* Section des messages en jeu */
 .msgInGame {
-    display: flex;
+    display: none;
     position: absolute;
     bottom: 150px;
     left: 25%;
