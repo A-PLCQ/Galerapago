@@ -125,8 +125,14 @@ function readCard(id) {
         default:
             card2Content = "Information non disponible pour cette carte.";
     }
+
     cardInfo.textContent = card2Content;
+
+    // Mettre à jour l'attribut src de l'élément img cardActive
+    let cardActiveImg = document.getElementById("cardActive");
+    cardActiveImg.src = '/src/assets/img/carteObjet/' + i + '.jpg';
 }
+
 
 function youAreDead() {
     alert("vous êtes mort")
