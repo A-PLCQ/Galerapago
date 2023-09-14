@@ -205,8 +205,37 @@ function verifPlayer(){
     };
 };
 
+toggleDivOnTurnInfo();
 
+function toggleDivOnTurnInfo() {
+    // Obtenez l'élément div que vous souhaitez afficher/masquer
+    let divToToggle = document.getElementById("valider-j"); // Remplacez "votreDiv" par l'ID réel de votre div
 
+    // Affichez la div en tant que flex
+    divToToggle.style.zIndex = "100";
+
+    // Ajoutez un gestionnaire d'événement au bouton "Valider"
+    let validerButton = document.getElementById("valider-j"); // Remplacez "valider" par l'ID réel de votre bouton
+    validerButton.addEventListener("click", function() {
+        // Masquez la div lorsque le joueur clique sur le bouton "Valider"
+        divToToggle.style.zIndex = "-1";
+    });
+}
+
+function toggleDivOnTurnEvent() {
+    // Obtenez l'élément div que vous souhaitez afficher/masquer
+    let divToToggle = document.getElementById("valider"); // Remplacez "votreDiv" par l'ID réel de votre div
+
+    // Affichez la div en tant que flex
+    divToToggle.style.zIndex = "100";
+
+    // Ajoutez un gestionnaire d'événement au bouton "Valider"
+    let validerButton = document.getElementById("valider"); // Remplacez "valider" par l'ID réel de votre bouton
+    validerButton.addEventListener("click", function() {
+        // Masquez la div lorsque le joueur clique sur le bouton "Valider"
+        divToToggle.style.zIndex = "-1";
+    });
+}
 function gameSteep(){
     if (efectWithMeteo === true){
         Player.fish -= consoFish + debufMineFood + 3;
@@ -226,7 +255,7 @@ function gameSteep(){
     resetEfectCard();
     tirageMeteo();
     verifEvent();
-
+    toggleDivOnTurn();
 };
 
 function mineWater(){

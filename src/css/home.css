@@ -103,8 +103,9 @@ main {
 .resours {
     display: flex;
     position: relative;
-    top: -180px;
+    top: -165px;
     align-items: center;
+    justify-content: center;
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -151,20 +152,20 @@ main {
 
 /* Section des messages en jeu */
 .msgInGame {
-    display: none;
+    display: flex;
     position: absolute;
-    bottom: 150px;
+    bottom: 170px;
     left: 25%;
-    border: solid 10px #fff;
+    gap: 20px;
     padding: 20px;  
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
 }
 
 .finDejours{
+    z-index: -1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,6 +177,7 @@ main {
 }
 
 .evenemnt{
+    z-index: -1;
     display: flex;
     flex-direction: column;
     align-items: center;
