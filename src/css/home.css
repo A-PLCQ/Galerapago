@@ -187,16 +187,19 @@ header {
     align-items: center;
     flex-direction: column;
     background-image: url(/src/assets/img/encart-parchemin.png);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 20px;
+    min-height: 60px;
+    min-width: 200px;
 }
 
 .meteo span h1 {
+    display: flex;
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
 }
 
 .meteo img {

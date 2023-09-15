@@ -8,13 +8,13 @@ let debufMineWater =0;
 let debufMineFood =0;
 
 // declaration des effect par id de carte (pour affichage seulement ! )
-let cardInfo1 = "je ne mange pas, par contre je bois, mais je collecte une ressource de moins pour chaque action eau et nourriture que je réalise.";
-let cardInfo2 = "En cas de pénurie uniquement, donne 2 rations d'eau";
-let cardInfo3 = "je peux consommer 2 bois au lieu d'1 poisson. Ce pouvoir peut être utilisé même s'il n'y a pas de pénurie";
-let cardInfo4 = "rapporte 2 bois pour le radeau";
-let cardInfo5 = "en cas de pénurie uniquement, donne 2 rations de nourriture.";
-let cardInfo6 = "cet objet ne sert à rien, j'ai faim";
-let cardInfo7 = "perdez 2 eaux et gagnez 2 nourritures.";
+//let cardInfo1 = "je ne mange pas, par contre je bois, mais je collecte une ressource de moins pour chaque action eau et nourriture que je réalise.";
+//let cardInfo2 = "En cas de pénurie uniquement, donne 2 rations d'eau";
+//let cardInfo3 = "je peux consommer 2 bois au lieu d'1 poisson. Ce pouvoir peut être utilisé même s'il n'y a pas de pénurie";
+//let cardInfo4 = "rapporte 2 bois pour le radeau";
+//let cardInfo5 = "en cas de pénurie uniquement, donne 2 rations de nourriture.";
+//let cardInfo6 = "cet objet ne sert à rien, j'ai faim";
+//let cardInfo7 = "perdez 2 eaux et gagnez 2 nourritures.";
 
 let r1 ; // premier chiffre random
 // recuperer les id des carte tiré aleatoirement
@@ -52,18 +52,6 @@ class perso {
         this.wood = wood; 
         this.water = water; 
     } 
-
-    set setFish(newFish){
-        this.fish = newFish;
-    }
-
-    set setWood(newWood){
-        this.wood = newWood;
-    }
-
-    set setWater(newWater){
-        this.water = newWater;
-    }
 }
 
 let Player = new perso(getUserName, 0, 3, 2); // stat de base 0 bois / 3 eau / 2 poisson
@@ -105,26 +93,8 @@ function tirageCard(){
     cardId3 = r1;
 }
 
-function displayCardInMax(cardId) {
-    // Obtenez l'élément img avec l'ID "cardActive"
-    let cardActive = document.getElementById("cardActive");
-
-    // Obtenez l'URL de l'image de la carte en fonction de cardId
-    let cardImageUrl = `/src/assets/img/carteObjet/${cardId}.jpg`;
-
-    // Mettez à jour l'attribut src de l'élément img pour afficher la carte en grand
-    cardActive.src = cardImageUrl;
-
-    // Affichez le bouton "jouer la carte"
-    let playButton = document.querySelector(".maxCard button");
-    playButton.style.display = "block";
-
-    // Enregistrez l'ID de la carte sélectionnée dans une variable globale pour pouvoir l'utiliser lors du clic sur le bouton "jouer la carte"
-    idPickCard = cardId;
-}
-
 function readCard(id){
-    let cardInfo = document.getElementById("infoAction");
+    let cardInfo = document.getElementById("cardActive");
 
     if(id === 1){
         i = cardId1;
@@ -137,52 +107,41 @@ function readCard(id){
 
     switch (i) {
         case 1:
-            idPickCard = cardInfo2;
-            idPickCard = 1; 
+            //card2Content = cardInfo1;
+            idPickCard = 1;
             break;
         case 2:
-            card2Content = cardInfo2;
+            //card2Content = cardInfo2;
             idPickCard = 2;
             break;
         case 3:
-            card2Content = cardInfo3;
+            //card2Content = cardInfo3;
             idPickCard = 3;
             break;
         case 4:
-            card2Content = cardInfo4;
+            //card2Content = cardInfo4;
             idPickCard = 4;
             break;
         case 5:
-            card2Content = cardInfo5;
+            //card2Content = cardInfo5;
             idPickCard = 5;
             break;
         case 6:
-            card2Content = cardInfo6;
+            //card2Content = cardInfo6;
             idPickCard = 6;
             break;
         case 7:
-            card2Content = cardInfo7;
+            //card2Content = cardInfo7;
             idPickCard = 7;
             break;
         // Ajoutez d'autres cas pour toutes les cartes possibles
         default:
-            card2Content = "Information non disponible pour cette carte.";
+            //card2Content = "Information non disponible pour cette carte.";
+            alert("Problemos recup carte");
     }
-    displayCardInMax(idPickCard);
-}
+    //cardInfo.textContent = card2Content;
+    cardInfo.setAttribute("src", `/src/assets/img/carteObjet/${idPickCard}.jpg`);
 
-function validCard() {
-    if (pickCard === false || bonusPickCard === true) {
-        pickCard = true;
-        useEfectCard();
-        refreshStat();
-
-        // Après avoir joué la carte, masquez à nouveau le bouton "jouer la carte"
-        let playButton = document.querySelector(".maxCard button");
-        playButton.style.display = "none";
-    } else {
-        alert("Vous avez déjà choisi une carte" + '\n' + "Vous n'avez le droit qu'à 1 carte par manche");
-    }
 }
 
 function youAreDead(){
@@ -205,36 +164,6 @@ function verifPlayer(){
     };
 };
 
-
-function toggleDivOnTurnInfo() {
-    // Obtenez l'élément div que vous souhaitez afficher/masquer
-    let divToToggle = document.getElementById("valider-j"); // Remplacez "votreDiv" par l'ID réel de votre div
-
-    // Affichez la div en tant que flex
-    divToToggle.style.zIndex = "100";
-
-    // Ajoutez un gestionnaire d'événement au bouton "Valider"
-    let validerButton = document.getElementById("valider-j"); // Remplacez "valider" par l'ID réel de votre bouton
-    validerButton.addEventListener("click", function() {
-        // Masquez la div lorsque le joueur clique sur le bouton "Valider"
-        divToToggle.style.zIndex = "-1";
-    });
-}
-
-function toggleDivOnTurnEvent() {
-    // Obtenez l'élément div que vous souhaitez afficher/masquer
-    let divToToggle = document.getElementById("valider"); // Remplacez "votreDiv" par l'ID réel de votre div
-
-    // Affichez la div en tant que flex
-    divToToggle.style.zIndex = "100";
-
-    // Ajoutez un gestionnaire d'événement au bouton "Valider"
-    let validerButton = document.getElementById("valider"); // Remplacez "valider" par l'ID réel de votre bouton
-    validerButton.addEventListener("click", function() {
-        // Masquez la div lorsque le joueur clique sur le bouton "Valider"
-        divToToggle.style.zIndex = "-1";
-    });
-}
 function gameSteep(){
     if (efectWithMeteo === true){
         Player.fish -= consoFish + debufMineFood + 3;
@@ -244,9 +173,6 @@ function gameSteep(){
     }
     jour += 1;
     Player.water -= consoWater + debufMineWater;
-    let = day = document.getElementById("jours");
-    let = jouravTemp = document.getElementById("jouravTemp");
-    let = resours = document.getElementById("resours");
     alert("Le tour est fini, Vous perdez 1 d'eau et 1 poisson" + '\n'+" Jour : " + jour);
     refreshStat();
     verifPlayer();
@@ -254,7 +180,7 @@ function gameSteep(){
     resetEfectCard();
     tirageMeteo();
     verifEvent();
-    toggleDivOnTurn();
+
 };
 
 function mineWater(){
@@ -325,13 +251,19 @@ function resetEfectCard(){
 }
 
 function validCard(){
-    if(pickCard === false || bonusPickCard === true){
-        pickCard = true;
-        useEfectCard();
-        refreshStat();
-
-    }else{
-        alert("Vous avez déjà choisi une carte"+'\n'+"Vous n'avez le droit qu'a 1 carte par manche");
+    let nbChooseCard = 0;
+    if(pickCard === false){
+        if(bonusPickCard === false && nbChooseCard <= 2 ){
+            pickCard = true;
+            nbChooseCard += 1;
+            useEfectCard();
+            refreshStat();
+            alert("La carte à bien été utiliser !");
+         }else{
+            alert("Vous avez déjà jouer le bonus !");
+         }
+        }else{
+        alert("Vous avez déjà choisi une carte"+'\n'+"Vous n'avez le droit qu'a 1 carte par manche, hors bonus !");
     }
 };
 
@@ -359,30 +291,34 @@ function verifEvent(){
         eventStatus = true;
         tirageEvent();
         conditionEvent();
+        aficherEvent();
     } else{
         eventStatus = false;
     }
 }
 
 function conditionEvent(){
+    let valide = document.getElementById("valider"); 
     if(eventId === 3){
         choiEfetEvent();
-        document.getElementById("click").style.display = "flex"
+        valide.hidden = false;
 
     } else{
         useEfectEvent();
         refreshStat();
+        valide.hidden = true;
+        document.getElementById("valider1").hidden = true;
     }
 }
 
 function tirageEvent(){; 
-    let rEvent = Math.floor(Math.random() * 3)+1;
-    let eventCard = document.getElementById("eventCard");
-    let urlEventImg = '/src/assets/img/carteEvent/'+rEvent+'.jpg';
-    eventCard.setAttribute("src", urlEventImg);
+    rEvent = Math.floor(Math.random() * 3)+1;
+    let eventCard = document.getElementById("event");
+    eventCard.setAttribute("src", "/src/assets/img/carteEvent/"+rEvent+".jpg");
+    let test = document.getElementById("eventGlobal");
     eventId = rEvent;
+    aficherEvent();
 }
-
 
 //tirageEvent();
 /*
@@ -410,21 +346,32 @@ function useEfectEvent(){
                 break;
             };
     }
-    refreshStat;
+    refreshStat();
 };
 
 function choiEfetEvent(choix){
     if(choix === 1){
         choiEfetEventId = 1;
+        closeEvent();
+        startEvent();
     } else{
-        choiEfetEventId = 2; 
+        choiEfetEventId = 2;
+        closeEvent(); 
+        startEvent();
     }
 }
 
 function startEvent(){
     useEfectEvent();
     refreshStat();
-    document.getElementById("click").style.display = "none" ; 
+}
+
+function aficherEvent(){
+    document.getElementById("event").style.display = "flex";
+}
+
+function closeEvent(){
+    document.getElementById("event").style.display = "none";
 }
 
 tirageCard();
